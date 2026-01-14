@@ -1,0 +1,64 @@
+// SPDX-License-Identifier: MIT
+pragma solidity 0.8.3;
+
+//QUESTION ONE
+contract Store {
+    uint public pNumber = 5; //variable that stores a positive number
+
+    function modValue(uint _newVal) public {
+        pNumber = _newVal;
+    } //Modifies the value of the variable
+
+    function retVal() public view returns (uint) {
+        return pNumber;
+    } // Returns the value of the variable
+}
+
+
+//QUESTION TWO
+contract ToDoList {
+
+        string["wash, sweep, brush"] public activities;
+
+        //array to store whether an activity is ccompleted
+        bool[true, false] public completed;
+
+        //function to add activity
+    function addTodo(string memory _activity) public {
+        activities.push(_activity);
+        completed.push(false); //default to not completed
+    }
+
+// function to view the todo list
+    function viewList() public view returns (activities[] memory, bool[] memory) {
+        return (activities, completed);
+    }
+
+// function to mark a specific activity as completed
+    function markCompleted(uint _index) public {
+        if(index < completed.length){
+        completed[index] = true;
+        }
+    }
+}
+
+//QUESTION THREE
+
+/*
+STRUCT
+A struct in solidity is a custom datatype that allows you to group different pieces of information together under one name. Example;
+
+struct ToDo {
+    string activity;
+    bool completed;
+}
+
+MAPPING
+A mapping in solidity is a key-value data structure that allows you to store and look up values using aa specific key. For example you can store tasks using a number as the key;
+
+mapping(uint=> string) public activities;
+activities[0] = "buy groceries"
+
+MAIN DIFFERENCE
+The main difference is that a struct can hold multiple pieces of related information together as one unit, while a mapping is used to look up a single value using a key. Structs are useful when you want to store detailed information about an item, whereas mappings are useful when you want fast access to a value based on a key.
+*/
