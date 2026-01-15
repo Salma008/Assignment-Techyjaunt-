@@ -3,7 +3,7 @@ pragma solidity 0.8.3;
 
 //QUESTION ONE
 contract Store {
-    uint public pNumber = 5; //variable that stores a positive number
+    uint public pNumber; //variable that stores a positive number
 
     function modValue(uint _newVal) public {
         pNumber = _newVal;
@@ -18,28 +18,21 @@ contract Store {
 //QUESTION TWO
 contract ToDoList {
 
-        string["wash, sweep, brush"] public activities;
+// an array of activities
+        string[] public activities;
 
-        //array to store whether an activity is ccompleted
-        bool[true, false] public completed;
-
-        //function to add activity
+     
+        //function to add new activity
     function addTodo(string memory _activity) public {
         activities.push(_activity);
-        completed.push(false); //default to not completed
     }
 
 // function to view the todo list
-    function viewList() public view returns (activities[] memory, bool[] memory) {
-        return (activities, completed);
+    function viewList() public view returns (string[] memory) {
+        return activities;
     }
 
 // function to mark a specific activity as completed
-    function markCompleted(uint _index) public {
-        if(index < completed.length){
-        completed[index] = true;
-        }
-    }
 }
 
 //QUESTION THREE
